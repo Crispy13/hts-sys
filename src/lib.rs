@@ -20,3 +20,9 @@ extern crate lzma_sys;
 
 // include on-the-fly generated bindings
 include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+
+// Create an FFI block to declare the missing private C function.
+#[link(name = "hts")]
+unsafe extern "C" {
+    pub fn bam_plp_init_overlaps(iter: bam_plp_t) -> std::os::raw::c_int;
+}
