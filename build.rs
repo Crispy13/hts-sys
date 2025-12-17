@@ -183,8 +183,9 @@ fn main() {
         config_lines.push("#define ENABLE_S3 1");
         cfg.file("htslib/hfile_s3.c");
         println!("cargo:rerun-if-changed=htslib/hfile_s3.c");
-        cfg.file("htslib/hfile_s3_write.c");
-        println!("cargo:rerun-if-changed=htslib/hfile_s3_write.c");
+        // this file has been removed since htslib v1.23
+        // cfg.file("htslib/hfile_s3_write.c");
+        // println!("cargo:rerun-if-changed=htslib/hfile_s3_write.c");
     }
 
     // pass through target-feature flags to enable special instruction
